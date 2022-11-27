@@ -1,6 +1,6 @@
-#318868312 Noam Lahmani
+
 	.data
-id: .quad 318868312
+id: .quad 123456789
 true:       .string "True\n"
 false:      .string "False\n"
 
