@@ -1,11 +1,12 @@
 
 	.data
 id: .quad 123456789
-true:       .string "True\n"
-false:      .string "False\n"
+
 
     .section	.rodata			#read only data section
 format1:	.string	"%d\n"
+true:       .string "True\n"
+false:      .string "False\n"
 
     .text
 .global main
@@ -19,8 +20,9 @@ main:
     .L1:
     movq $format1, %rdi #the string is the first paramter passed to the printf function.
     movq $id, %rsi  #geting the address of label id
-    movq (%rsi), %rsi #geting the id 
+   movq (%rsi), %rsi #geting the id 
     movq $0, %rax
+    push $0x01 
     call printf #calling to printf with its arguments
 
     .L2:
@@ -90,14 +92,15 @@ main:
     movq $0, %rdx # k = couner of 1 in the binary number
     .Loop:
     cmpq $8, %rcx  #while i<8
-    je .Done       #when i = 8 done
-    movq %r8, %r9       #save tje fourth byte in %r9
-    and $1, %r9         #check the lastes bit in %r9
+    jg .Done       #when i = 8 done
+    movq %r8, %r9       #save the fourth byte in %r9
+    and $1, %r9         #check the last bit in %r9
     inc %rcx        #i++
+    shr $1, %r8     #shift to %r8 
     cmpq $1, %r9        
     jne .Loop       #if the lastes bit in %r9 is 0, go to the start of the loop
     inc %rdx           #else - k++
-    shr $1, %r8     #shift to %r8 
+    
     jmp .Loop
 
     .Done:
