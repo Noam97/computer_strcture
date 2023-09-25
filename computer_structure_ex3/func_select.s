@@ -1,4 +1,4 @@
-#318868312 Noam Lahmani
+# Noam Lahmani
 .section .rodata
     charInput:   .string " %c"
     case31: .string "first pstring length: %d, second pstring length: %d\n"
