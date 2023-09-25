@@ -1,5 +1,4 @@
-//318868312 Noam lahmani
-// I used my code from the last time I took this course
+//Noam lahmani
 #include <stdlib.h>
 #include <stdbool.h>
 #include "myfunction1.h"
