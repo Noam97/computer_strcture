@@ -1,4 +1,4 @@
-//318868312 Noam Lahmani
+// Noam Lahmani
 #include <stdio.h>
 #include <stdbool.h>
 #include "ex1.h"
